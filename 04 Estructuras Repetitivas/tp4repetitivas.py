@@ -1,49 +1,117 @@
-terminar = True                                                     #Se inicializa la variable con el valor Boolean "True" para poder comenzar el ciclo hasta que su valor cambie a "False" 
-while terminar:                                                     #Se inicia la estructura repetitiva "while"
-    print("Conversor de Números entre bases numericas!")
-    print("1. Decimal a Binario")                                   #Se dan opciones para ejecutar codigo de conversion numerica
-    print("2. Binario a Decimal")                                   #Se dan opciones para ejecutar codigo de conversion numerica
-    print("3. Terminar")                                            #Se da la opcion para terminar el programa
-    opcion = input("Elige una opción: ")                            #Se solicita ingresar un valor y se guarda en la variable "opción"
+import math, random
 
-    if opcion == "1":                                               #Si la variable "opcion" guarda un valor valido se ejecuta el codigo correspondiente al valor elegido
-        num = int(input("Ingrese un numero decimal entero: "))      #Se solicita que se ingrese un número decimal y se guarda en la variable "num" como int
-        original_num = num                                          #Se guarda el valor original de num en la variable "original_num"
-        result = ""                                                 #Se inicializa la variable "result" como un string
+# Actividad 1
 
-        if num == 0:                                                #Usando el operador relacional ==, se compara el valor de la variable "num" con el caracter 0"
-           result = 0                                               #Se guarda el valor "0" en la variable "result", dando lugar al ciclo while nuevamente
-
-        else:
-            while num > 0:                                          #Se inicia el ciclo while si la variable "num" es mayor a "0"
-                resto = num % 2                                     #Se guarda el resultado de la operación num módulo 2 en la variable "resto" 
-                num = num // 2                                      #Se realiza la división entera por 2 de la variable "num" y se actualiza en la misma variable
-                result = str(resto) + result                        #Se se actualiza la variable "result", con la suma de la variable "resto" como string y de la variable "result"
-
-        result = int(result)                                        #Se cambia el tipo de dato (string) de la variable "result" al tipo de dato int y se guarda en la misma variable
-        print(f"El número {original_num} en binario es: {result}")
+for i in range (101):
+    print(i)
 
 
-    elif opcion == "2":                                             #Si la variable "opcion" guarda un valor valido se ejecuta el codigo correspondiente al valor elegido
-        binario = input("Ingrese un número binario: ")              #Se solicita que se ingrese un número binario y se guarda en la variable "binario"
-        binarioInvertido = binario[::-1]                            #Se utiliza un slicing para invertir el orden de los digitos del numero binario y se guarda en la variable "binarioInvertido"
-        suma = 0                                                    #Se inicializa la variable "suma" con el calor  "0"
+# Actividad 2
 
-        if binario == 0:
-            suma = 0
+numero = int(input("Ingrese un número: "))
+digitos = 0
+while numero != 0:
+    numero = math.trunc(numero / 10)
+    digitos += 1
 
-        else:
-            for i in range(len(binarioInvertido)):                  #Itera sobre cada digito del string "binarioInvertido"
-                digito = int(binarioInvertido[i])                   #Convierte cada caracter en la posición de "i" al tipo de dato "entero"
-                suma += digito * 2 ** i                             #Calcula el valor decimal del digito actual, realizando; digito multiplicado por 2, elevado a la posición numerica del digito y lo guarda en el acumulador "suma"
+print(f"El número contiene {digitos} digitos!")
 
-        print(f"El número binario {binario} en decimal es: {suma}")
+# Actividad 3
 
+numero1 = int(input("Ingrese el primer número entero: "))
+numero2 = int(input("Ingrese el segundo número entero: "))
+suma = 0
 
-    elif opcion == "3":                                             #Si la variable "opcion" guarda un valor valido se ejecuta el codigo correspondiente al valor elegido
-        print("Fin")
-        terminar = False                                            #Cambia el valor de la variable "termina" al valor Boolean "False" para finalizar el ciclo
+for i in range (numero1+1,numero2):
+    suma += i
 
+print (f"La suma de los números comprendidos entre los números ingresados es igual a {suma}")
 
-    else:
-        print("Ingrese un valor valido (1-3)")
+# Actividad 4
+
+numero = int(input("Ingrese un número entero que desee sumar (0 para terminar): "))
+suma = 0
+
+while numero != 0:
+    suma += numero
+    numero = int(input("Ingrese un número que desee sumar (0 para terminar): "))
+
+print (f"La suma de los números ingresados es igual a {suma}")
+
+# Actividad 5  
+
+numeroRandom = random.randint(0,9)
+numero = int(input("Ingrese un número entre 0 y 9 para adivinar el número aleatorio: "))
+intentos = 1
+
+while numeroRandom != numero:
+    intentos += 1
+    numero = int(input("Ingrese un número entre 0 y 9 para adivinar el número aleatorio: "))
+
+print(f"Usted adivino el número aleatorio en {intentos} intentos!")
+
+# Actividad 6
+
+for i in range (101,-1,-1):
+    if i % 2 == 0:
+        print(i)
+
+# Actividad 7
+
+numero = int(input("Ingrese un número entero positivo: "))
+suma = 0
+for i in range(numero):
+    suma += i
+
+print (f"La suma de los números comprendidos entre 0 y {numero} es igual a {suma}")
+
+# Actividad 8
+
+positivos = 0
+negativos = 0
+pares = 0
+impares = 0
+
+for i in range (10):
+    numero = int(input("Ingrese un número entero: "))
+
+    if numero > 0:
+        positivos += 1
+    elif numero < 0:
+        negativos += 1
+
+    if numero % 2 == 0:
+        pares += 1
+    elif numero % 2 != 0:  
+        impares += 1
+
+print("De los números ingresados")
+print(F"{pares} números son pares")
+print(F"{impares} números son impares")
+print(F"{positivos} números son positivos")
+print(F"{negativos} números son negativos")
+
+# Actividad 9
+
+suma = 0 
+cantidad = 0
+for i in range (10):
+    numero = int(input("Ingrese un número entero: "))
+    suma += numero
+    cantidad += 1
+
+print(f"La media de los valosres ingresados es igual a",(suma/cantidad))
+
+# Actividad 10
+
+numero = int(input("Ingrese un número: "))
+inverso = 0
+digito = 0
+
+while numero != 0:
+    digito = numero % 10
+    numero = math.trunc(numero/10)
+    inverso = inverso * 10 + digito
+
+print(f"El número ingresado es {numero}")
+print(f"El número ingresado invertido es {inverso}")
